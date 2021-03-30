@@ -8,7 +8,7 @@ function build_llvm ()
     cd "${LLVM_BUILD_DIR}"
     cmake \
         -DLLVM_USE_LINKER="gold" \
-        -DCMAKE_BUILD_TYPE="Debug" \
+        -DCMAKE_BUILD_TYPE="Release" \
         -DLLVM_ENABLE_PROJECTS="clang" \
         -DCMAKE_CROSSCOMPILING=True \
         -DCMAKE_INSTALL_PREFIX=${INSTALL_DIR} \

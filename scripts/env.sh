@@ -26,5 +26,5 @@ LLVM_BUILD_DIR="${BUILD_DIR}/llvm-project"
 COMPILERRT_BUILD_DIR="${BUILD_DIR}/compiler-rt"
 PK_BUILD_DIR="${BUILD_DIR}/risc-pk"
 ASANTEST_BUILD_DIR="${BUILD_DIR}/asan-tests"
-
+ASAN_TESTS_DESTINATION="${SRC_DIR}/config/riscv/root"
 CPU_NUM=${CPU_NUM:-8}

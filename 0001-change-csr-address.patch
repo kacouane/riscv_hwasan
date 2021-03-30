@@ -1,0 +1,29 @@
+From d8bddbc0c1d9d5fafc44c4d4c99270fe7033fe3e Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Antoine=20Linar=C3=A8s?= <antoine.linares@sifive.com>
+Date: Tue, 30 Mar 2021 11:26:19 +0200
+Subject: [PATCH] change csr address
+
+---
+ arch/riscv/include/asm/csr.h | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
+index 2b8705b18213..a20b37aa6530 100644
+--- a/arch/riscv/include/asm/csr.h
++++ b/arch/riscv/include/asm/csr.h
+@@ -112,9 +112,9 @@
+ #define CSR_MHARTID		0xf14
+ 
+ /* Pointer masking CSRs */
+-#define CSR_UMTE            0x8c0                                                                   
+-#define CSR_UPMMASK         0x8c1                                                                   
+-#define CSR_UPMBASE         0x8c2
++#define CSR_UMTE            0x8c5
++#define CSR_UPMMASK         0x8c6
++#define CSR_UPMBASE         0x8c7
+ 
+ #define PM_ENABLE  _AC(0x00000004, UL) /* Enable pointer masking bit in UMTE csr */
+ #define PM_CURRENT _AC(0x00000008, UL) /* Controls ability to change PM CRSs */
+-- 
+2.31.1
+

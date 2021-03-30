@@ -1,0 +1,62 @@
+From 4d4db9a7b30b1d100439a14b6455b68cd2ff7eb9 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Antoine=20Linar=C3=A8s?= <antoine.linares@sifive.com>
+Date: Tue, 30 Mar 2021 11:51:19 +0200
+Subject: [PATCH] change csr address
+
+---
+ configure               |  4 ++--
+ target/riscv/cpu_bits.h | 18 +++++++++---------
+ 2 files changed, 11 insertions(+), 11 deletions(-)
+
+diff --git a/configure b/configure
+index e8e8e984f2..67eb9db8ba 100755
+--- a/configure
++++ b/configure
+@@ -2228,9 +2228,9 @@ int main(void) { return tls_var; }
+ EOF
+ 
+ # Check we support --no-pie first; we will need this for building ROMs.
+-if compile_prog "-Werror -fno-pie" "-no-pie"; then
++if compile_prog "-Werror -fno-pie" "--no-pie"; then
+   CFLAGS_NOPIE="-fno-pie"
+-  LDFLAGS_NOPIE="-no-pie"
++#   LDFLAGS_NOPIE="-no-pie"
+ fi
+ 
+ if test "$static" = "yes"; then
+diff --git a/target/riscv/cpu_bits.h b/target/riscv/cpu_bits.h
+index 5c1508fc06..d169e7d040 100644
+--- a/target/riscv/cpu_bits.h
++++ b/target/riscv/cpu_bits.h
+@@ -355,19 +355,19 @@
+ #define CSR_MHPMCOUNTER31H  0xb9f
+ 
+ /* Custom user register */
+-#define CSR_UMTE            0x8c0
+-#define CSR_UPMMASK         0x8c1
+-#define CSR_UPMBASE         0x8c2
++#define CSR_UMTE            0x8c5
++#define CSR_UPMMASK         0x8c6
++#define CSR_UPMBASE         0x8c7
+ 
+ /* Custom machine register */
+-#define CSR_MMTE            0x7c0
+-#define CSR_MPMMASK         0x7c1
+-#define CSR_MPMBASE         0x7c2
++#define CSR_MMTE            0x7c5
++#define CSR_MPMMASK         0x7c6
++#define CSR_MPMBASE         0x7c7
+ 
+ /* Custom supervisor register */
+-#define CSR_SMTE            0x9c0
+-#define CSR_SPMMASK         0x9c1
+-#define CSR_SPMBASE         0x9c2
++#define CSR_SMTE            0x9c5
++#define CSR_SPMMASK         0x9c6
++#define CSR_SPMBASE         0x9c7
+ 
+ /* Legacy Machine Protection and Translation (priv v1.9.1) */
+ #define CSR_MBASE           0x380
+-- 
+2.31.1
+
